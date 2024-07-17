@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Folha de estilo (register.css) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='payment.css')}}">
+    <!-- Icone da pagina -->
+    <link rel="shortcut icon" href="/static/icon_car.ico" type="image/x-icon">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+    <title>Luxury Wheels</title>
+</head>
+<body>
+    <p class="logo">Luxury Wheels</p>
+    <div class="container">
+        <h1 class="title">Selecione o método de pagamento</h1>
+        <form action="/process_payment" method="POST">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="metodo_pagamento" id="cartao_credito" value="cartao_credito" checked>
+                <label class="form-check-label" for="cartao_credito">
+                    <p class="text">Cartão de crédito</p>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="metodo_pagamento" id="dinheiro" value="dinheiro">
+                <label class="form-check-label" for="dinheiro">
+                    <p class="text">Dinheiro</p>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Confirmar Pagamento</button>
+        </form>
+    </div>
+</body>
+</html>

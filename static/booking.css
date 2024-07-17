@@ -1,0 +1,53 @@
+body {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.logo {
+    color: white;
+    font-size: 35px;
+    font-family: "Calligraffitti", cursive;
+    position: absolute;
+    left: 1200px;
+    top: 10px;
+}
+
+.text {
+    color: white;
+}
+
+.button_total {
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    margin-top:10px;
+}
+
+.button_reserva {
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+
+.veiculo img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.veiculo p {
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
+
+.error{
+    color: red;
+}
+
+.text_total{
+    color:white;
+    margin-top:10px;
+}

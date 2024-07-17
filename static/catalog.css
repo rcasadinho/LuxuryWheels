@@ -1,0 +1,128 @@
+body {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.logo {
+    color: white;
+    font-size: 35px;
+    font-family: "Calligraffitti", cursive;
+    position: absolute;
+    left: 1200px;
+    top: 10px;
+}
+
+
+.text_filtros {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+.block {
+    display: block;
+    margin-bottom: 3px;
+    margin-left: 15px;
+    margin-top: 5px;
+    color: white;
+}
+
+.block_top {
+    display: block;
+    margin-bottom: 3px;
+    margin-left: 15px;
+    margin-top: 30px;
+    color: white;
+}
+
+.margin_select {
+    margin-left: 15px;
+}
+
+.button {
+    text-align: center !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+
+.text_veiculos {
+    position: absolute;
+    top: 5px;
+    left: 220px;
+    color: white;
+    font-size: 50px;
+}
+
+.flash_message {
+    position:absolute;
+    top: 28px;
+    left: 650px;
+    color: white;
+}
+
+.wrapper {
+    margin: -250px 0 0 200px;
+    width: 50%;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.item img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.text_item ul {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    list-style-type: disc;
+    list-style-position: inside;
+    color: white;
+    font-size: 1.5em;
+}
+
+.button_buy {
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+
+.a_historic{
+    position:absolute;
+    color:white;
+    top:70px;
+    left:1190px;
+    font-size:1.5em;
+}
+
+.a_log_out{
+    position:absolute;
+    color:white;
+    top:100px;
+    left:1325px;
+    font-size:1.5em;
+}

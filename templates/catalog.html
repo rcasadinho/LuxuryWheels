@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='catalog.css')}}">
+    <link rel="shortcut icon" href="/static/icon_car.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+    <title>Luxury Wheels</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash_message">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <p class="text_filtros"><strong>Filtros</strong></p>
+    <form method="POST" action="/catalog">
+        <label for="tipo" class="block_top">Tipo de veículo:</label>
+        <select id="tipo" name="tipo" class="margin_select">
+            <option value="todos">Todos</option>
+            <option value="carro">Carro</option>
+            <option value="moto">Moto</option>
+        </select>
+
+        <label for="categoria" class="block">Categoria:</label>
+        <select id="categoria" name="categoria" class="margin_select">
+            <option value="todos">Todos</option>
+            <option value="pequeno">Pequeno</option>
+            <option value="medio">Médio</option>
+            <option value="grande">Grande</option>
+            <option value="suv">SUV</option>
+            <option value="lux">Luxo</option>
+        </select>
+
+        <label for="transmissao" class="block">Transmissão:</label>
+        <select id="transmissao" name="transmissao" class="margin_select">
+            <option value="todos">Todos</option>
+            <option value="automatica">Automática</option>
+            <option value="manual">Manual</option>
+        </select>
+
+        <label for="diaria" class="block">Valor da diária:</label>
+        <select id="diaria" name="diaria" class="margin_select">
+            <option value="todos">Todos</option>
+            <option value="<25">< 25€</option>
+            <option value="25-50">25€ - 50€</option>
+            <option value="50-75">50€ - 75€</option>
+            <option value="75-100">75€ - 100€</option>
+            <option value=">100">> 100€</option>
+        </select>
+
+        <label for="nr_passageiros" class="block">Número de passageiros:</label>
+        <select id="nr_passageiros" name="nr_passageiros" class="margin_select">
+            <option value="todos">Todos</option>
+            <option value="1-4">1 a 4</option>
+            <option value="5-6">5 a 6</option>
+            <option value=">7">7 ou mais</option>
+        </select>
+
+        <button type="submit" class="button">Filtrar</button>
+    </form>
+
+    <header>
+        <p class="text_veiculos">Lista de veículos</p>
+        <p class="logo">Luxury Wheels</p>
+    </header>
+
+    <div class="wrapper">
+        <main class="container">
+            {% for veiculo in veiculos %}
+            <div class="item">
+                <img src="{{ veiculo.img_src }}" alt="{{ veiculo.nome }}">
+                <div class="text_item">
+                    <ul>
+                        <li>{{ veiculo.nome }}</li>
+                        <li>{{ veiculo.nr_passageiros }} Lugares</li>
+                        <li>Mudanças {{ veiculo.transmissao }}</li>
+                        <li>Valor diário {{ veiculo.valor_diaria }}€</li>
+                    </ul>
+                </div>
+                <button class="button_buy" onclick="window.location.href='/booking/{{ veiculo.id }}'">Reservar</button>
+            </div>
+            {% endfor %}
+        </main>
+    </div>
+
+    <div class="history">
+        <p><a href="/historic" target="_self" class="a_historic">Histórico de reservas &gt;</a></p>
+    </div>
+    <div class="log_out">
+        <p><a href="/" target="_self" class="a_log_out">Log Out &gt;</a></p>
+    </div>
+
+    <!-- Javascript utilizado para conseguir fechar o alerta ao carregar no " X "-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var closeButtons = document.querySelectorAll('.alert .close');
+            closeButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var alert = this.closest('.alert');
+                    alert.style.display = 'none'; // ou alert.remove(); para remover do DOM
+                });
+            });
+        });
+    </script>
+</body>
+</html>

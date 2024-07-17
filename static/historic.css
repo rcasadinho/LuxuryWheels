@@ -1,0 +1,74 @@
+body {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+
+.logo {
+    color: white;
+    font-size: 35px;
+    font-family: "Calligraffitti", cursive;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.text {
+    color: white;
+}
+
+.a_back {
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.a_back:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    color: black;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    background: #203A43;
+    color: white;
+}
+
+td {
+    background: #2C5364;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #ff6b6b;
+    color: white;
+    cursor: pointer;
+}
+
+button.edit {
+    background-color: #4caf50;
+}
+
+button.cancel {
+    background-color: #ff6b6b;
+}
+
+button:hover {
+    opacity: 0.8;
+}

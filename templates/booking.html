@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='booking.css')}}">
+    <link rel="shortcut icon" href="/static/icon_car.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+    <title>Luxury Wheels</title>
+</head>
+<body>
+    <header>
+        <p class="logo">Luxury Wheels</p>
+    </header>
+    <main class="p-4 text-center">
+        <h1 class="display-5 text-center mt-1 text">Selecione as Datas para Reservar o Veículo</h1>
+        <div class="veiculo">
+            <p>{{ veiculo.nome }}</p>
+            <img src="{{ veiculo.img_src }}" alt="{{ veiculo.nome }}">
+        </div>
+        <form action="/booking/{{ veiculo.id }}" method="post">
+            <label for="start_date" class="text">Data de Início:</label>
+            <input type="date" id="start_date" name="start_date" value="{{ start_date }}" min="{{ hoje }}" required>
+            <br>
+            <label for="end_date" class="text">Data de Término:</label>
+            <input type="date" id="end_date" name="end_date" value="{{ end_date }}" min="{{ amanha }}" required>
+            <br>
+            <button type="submit" class="button_total">Preço total</button>
+            {% if total_reserva is not none %}
+            <p class="text_total">Total da Reserva: {{ total_reserva }} €</p>
+            <button type="button" onclick="location.href='/payment'" class="button_reserva">Reservar</button>
+            {% endif %}
+        </form>
+        {% if error_message %}
+        <p class="text-danger">{{ error_message }}</p>
+        {% endif %}
+    </main>
+</body>
+</html>
